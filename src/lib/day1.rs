@@ -1,18 +1,23 @@
 pub fn part_1(input: &str) -> i64 {
     input
         .split("\n\n")
-        .map(|s| s.split_whitespace()
-            .map(|s| str::parse::<i64>(s).unwrap())
-            .sum::<i64>())
-        .max().unwrap()
+        .map(|s| {
+            s.split_whitespace()
+                .map(|s| str::parse::<i64>(s).unwrap())
+                .sum::<i64>()
+        })
+        .max()
+        .unwrap()
 }
 
 pub fn part_2(input: &str) -> i64 {
     let mut sums = input
         .split("\n\n")
-        .map(|s| s.split_whitespace()
-            .map(|s| str::parse::<i64>(s).unwrap())
-            .sum::<i64>())
+        .map(|s| {
+            s.split_whitespace()
+                .map(|s| str::parse::<i64>(s).unwrap())
+                .sum::<i64>()
+        })
         .collect::<Vec<i64>>();
     sums.sort_by(|a, b| b.cmp(a));
     sums.iter().take(3).sum()

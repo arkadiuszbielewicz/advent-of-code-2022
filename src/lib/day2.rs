@@ -3,14 +3,16 @@ use std::str::FromStr;
 type Score = u32;
 
 pub fn part_1(input: &str) -> Score {
-    input.split("\n")
+    input
+        .split("\n")
         .filter_map(|line| str::parse::<Round1>(line).ok())
         .map(|round| round.total_score())
         .sum()
 }
 
 pub fn part_2(input: &str) -> Score {
-    input.split("\n")
+    input
+        .split("\n")
         .filter_map(|line| str::parse::<Round2>(line).ok())
         .map(|round| round.total_score())
         .sum()
@@ -70,7 +72,6 @@ impl Round2 {
         self.you.score() + self.score()
     }
 }
-
 
 impl Scoreable for Round2 {
     fn score(&self) -> Score {

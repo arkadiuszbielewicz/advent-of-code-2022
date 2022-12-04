@@ -1,7 +1,8 @@
 use std::ops::{Not, Range};
 
 pub fn part_1(input: &str) -> u64 {
-    input.lines()
+    input
+        .lines()
         .map(|l| l.split_once(",").unwrap())
         .map(|(l, r)| (range_from_str(l).unwrap(), range_from_str(r).unwrap()))
         .map(|(l, r)| is_within(&l, &r))
@@ -10,7 +11,8 @@ pub fn part_1(input: &str) -> u64 {
 }
 
 pub fn part_2(input: &str) -> u64 {
-    input.lines()
+    input
+        .lines()
         .map(|l| l.split_once(",").unwrap())
         .map(|(l, r)| (range_from_str(l).unwrap(), range_from_str(r).unwrap()))
         .map(|(l, r)| overlaps(&l, &r))
@@ -76,7 +78,6 @@ mod tests {
 
         // then
         assert_eq!(result, 2);
-
     }
 
     #[test]
@@ -94,6 +95,5 @@ mod tests {
 
         // then
         assert_eq!(result, 4);
-
     }
 }

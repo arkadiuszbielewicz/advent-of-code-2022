@@ -21,27 +21,29 @@ fn split_half(s: &str) -> (&str, &str) {
 }
 
 fn find_duplicate(first: &str, second: &str) -> Option<char> {
-    first.chars().filter(|c| second.chars().find(|o| o == c).is_some()).next()
+    first
+        .chars()
+        .filter(|c| second.chars().find(|o| o == c).is_some())
+        .next()
 }
 
 pub fn part_2(input: &str) -> u32 {
     let lines: Vec<&str> = input.lines().collect();
-    lines.chunks(3).map(|chunk| {
-        let (r1, r2, r3) = (chunk[0], chunk[1], chunk[2]);
-        find_in_group(r1, r2, r3).unwrap()
-    })
+    lines
+        .chunks(3)
+        .map(|chunk| {
+            let (r1, r2, r3) = (chunk[0], chunk[1], chunk[2]);
+            find_in_group(r1, r2, r3).unwrap()
+        })
         .map(to_score)
         .sum()
 }
 
 fn find_in_group(r1: &str, r2: &str, r3: &str) -> Option<char> {
-    r1.chars().filter(|c|
-        {
-            r2.chars().find(|o| o == c).is_some() &&
-                r3.chars().find(|o| o == c).is_some()
-        }).next()
+    r1.chars()
+        .filter(|c| r2.chars().find(|o| o == c).is_some() && r3.chars().find(|o| o == c).is_some())
+        .next()
 }
-
 
 #[cfg(test)]
 mod tests {
