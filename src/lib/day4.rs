@@ -3,7 +3,7 @@ use std::ops::{Not, Range};
 pub fn part_1(input: &str) -> u64 {
     input
         .lines()
-        .map(|l| l.split_once(",").unwrap())
+        .map(|l| l.split_once(',').unwrap())
         .map(|(l, r)| (range_from_str(l).unwrap(), range_from_str(r).unwrap()))
         .map(|(l, r)| is_within(&l, &r))
         .filter(|r| *r)
@@ -13,7 +13,7 @@ pub fn part_1(input: &str) -> u64 {
 pub fn part_2(input: &str) -> u64 {
     input
         .lines()
-        .map(|l| l.split_once(",").unwrap())
+        .map(|l| l.split_once(',').unwrap())
         .map(|(l, r)| (range_from_str(l).unwrap(), range_from_str(r).unwrap()))
         .map(|(l, r)| overlaps(&l, &r))
         .filter(|r| *r)
@@ -22,7 +22,7 @@ pub fn part_2(input: &str) -> u64 {
 
 fn range_from_str(input: &str) -> Option<Range<u64>> {
     input
-        .split_once("-")
+        .split_once('-')
         .and_then(|(start, end)| {
             str::parse::<u64>(start)
                 .ok()

@@ -9,5 +9,5 @@ edition = "2021"
 path = "src/lib/mod.rs"
 
 [dependencies]
-
+nom = "7.1"
 

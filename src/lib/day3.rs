@@ -5,7 +5,7 @@ pub fn part_1(input: &str) -> u32 {
 fn calculate_one_line(input: &str) -> u32 {
     let (first_half, second_half) = split_half(input);
     let duplicates = find_duplicate(first_half, second_half).unwrap();
-    return to_score(duplicates);
+    to_score(duplicates)
 }
 
 fn to_score(duplicates: char) -> u32 {
@@ -23,8 +23,7 @@ fn split_half(s: &str) -> (&str, &str) {
 fn find_duplicate(first: &str, second: &str) -> Option<char> {
     first
         .chars()
-        .filter(|c| second.chars().find(|o| o == c).is_some())
-        .next()
+        .find(|c| second.chars().any(|o| &o == c))
 }
 
 pub fn part_2(input: &str) -> u32 {
@@ -41,8 +40,7 @@ pub fn part_2(input: &str) -> u32 {
 
 fn find_in_group(r1: &str, r2: &str, r3: &str) -> Option<char> {
     r1.chars()
-        .filter(|c| r2.chars().find(|o| o == c).is_some() && r3.chars().find(|o| o == c).is_some())
-        .next()
+        .find(|c| r2.chars().any(|o| &o == c) && r3.chars().any(|o| &o == c))
 }
 
 #[cfg(test)]

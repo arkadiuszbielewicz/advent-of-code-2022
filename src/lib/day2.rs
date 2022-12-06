@@ -4,7 +4,7 @@ type Score = u32;
 
 pub fn part_1(input: &str) -> Score {
     input
-        .split("\n")
+        .lines()
         .filter_map(|line| str::parse::<Round1>(line).ok())
         .map(|round| round.total_score())
         .sum()
@@ -12,7 +12,7 @@ pub fn part_1(input: &str) -> Score {
 
 pub fn part_2(input: &str) -> Score {
     input
-        .split("\n")
+        .lines()
         .filter_map(|line| str::parse::<Round2>(line).ok())
         .map(|round| round.total_score())
         .sum()
@@ -53,7 +53,7 @@ impl FromStr for Round1 {
     type Err = ();
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let split: Vec<&str> = s.split(" ").collect();
+        let split: Vec<&str> = s.split(' ').collect();
         let (opponent, you) = (split[0], split[1]);
         Ok(Self {
             opponent: str::parse::<Figure>(opponent)?,
@@ -93,7 +93,7 @@ impl FromStr for Round2 {
     type Err = ();
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let split: Vec<&str> = s.split(" ").collect();
+        let split: Vec<&str> = s.split(' ').collect();
         let (opponent, you) = (split[0], split[1]);
         Ok(Self {
             opponent: str::parse::<Figure>(opponent)?,
