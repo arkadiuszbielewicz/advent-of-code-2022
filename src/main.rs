@@ -23,6 +23,7 @@ fn main() {
     day!(day3);
     day!(day4);
     day!(day5);
+    day!(day6);
 }
 
 fn read_file(file_name: &str) -> String {
