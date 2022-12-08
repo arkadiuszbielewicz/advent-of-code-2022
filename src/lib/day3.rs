@@ -21,9 +21,7 @@ fn split_half(s: &str) -> (&str, &str) {
 }
 
 fn find_duplicate(first: &str, second: &str) -> Option<char> {
-    first
-        .chars()
-        .find(|c| second.chars().any(|o| &o == c))
+    first.chars().find(|c| second.chars().any(|o| &o == c))
 }
 
 pub fn part_2(input: &str) -> u32 {

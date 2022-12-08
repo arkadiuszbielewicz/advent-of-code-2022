@@ -10,4 +10,5 @@ path = "src/lib/mod.rs"
 
 [dependencies]
 nom = "7.1"
+grid = "0.9"
 

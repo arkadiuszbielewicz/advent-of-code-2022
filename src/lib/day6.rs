@@ -3,14 +3,20 @@ use std::ops::Not;
 pub fn part_1(input: &str) -> usize {
     let window_size = 4;
     let input = input.chars().collect::<Vec<char>>();
-    let option = input.windows(window_size).enumerate().find(|w| has_duplicate(w.1).not());
+    let option = input
+        .windows(window_size)
+        .enumerate()
+        .find(|w| has_duplicate(w.1).not());
     option.unwrap().0 + window_size
 }
 
 pub fn part_2(input: &str) -> usize {
     let window_size = 14;
     let input = input.chars().collect::<Vec<char>>();
-    let option = input.windows(window_size).enumerate().find(|w| has_duplicate(w.1).not());
+    let option = input
+        .windows(window_size)
+        .enumerate()
+        .find(|w| has_duplicate(w.1).not());
     option.unwrap().0 + window_size
 }
 
